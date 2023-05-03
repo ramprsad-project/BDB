@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "WjrPN0yzRE9tbXHuobGhORQ4bSPj81Me2kSsWRzl3sE=",
+  "Source": "SophosLoggingManagementAPI",
+  "BasePath": "_content/SophosLoggingManagementAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
