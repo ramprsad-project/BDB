@@ -10,7 +10,7 @@ namespace SophosLoggingManagementAPI.Data
 {
     public static class SaveSystemEvents
     {
-        public static int SavesystemEventsToDB(string customerid, string receivedat, string devicereportedtime, string facility, string priority, string fromhost, string message, string ntseverity, string importance, string eventsource, string eventuser, string eventcategory, string eventid, string eventbinarydata, string maxavailable, string currusage, string minusage, string maxusage, string syslogtag, string eventlogtype, string genericfilename, string systemid)
+        public static int SavesystemEventsToDB(string event_id, string severity, string name, string location, string type, string created_at, string source_info_ip, string customer_id, string endpoint_type, string endpoint_id, string user_id, string when_occured, string source, string group_action)
         {
             string connstring = String.Format("Server={0}; Port={1};" +
                 "User Id = {2}; Password={3};Database={4};",
@@ -20,8 +20,8 @@ namespace SophosLoggingManagementAPI.Data
             NpgsqlCommand dbcmd = dbcon.CreateCommand();
             try
             {
-                string sql1 = "INSERT INTO systemevents(customerid,receivedat, devicereportedtime, facility, priority, fromhost, message, ntseverity, importance, eventsource, eventuser, eventcategory, eventid, eventbinarydata, maxavailable, currusage, minusage, maxusage, infounitid, syslogtag, eventlogtype, genericfilename, systemid) " +
-                " VALUES (" + Regex.Replace(customerid, "[^0-9.]", "") + ",'" + receivedat + "','" + devicereportedtime + "','" + 2 +"','" + 1 + "','"+ fromhost + "','"  + message + "','" + 0 + "','" + 0 + "','"+ eventsource + "','" + eventuser +  "','" + 4 + "','"+ 7 +  "','" + eventbinarydata + "','" + 1 + "','"+ 1 + "','" + 3 +"','" + 2 + "','"+ 1 + "','" + syslogtag +  "','" + 1 +"','" + genericfilename + "','" + 2 + "')";
+                string sql1 = "INSERT INTO sophossystemevents(event_id, severity, name, location, type, created_at, source_info_ip, customer_id, endpoint_type, endpoint_id, user_id, when_occured, source, group_action) " +
+                " VALUES (" + event_id + ",'" + severity + "','" + name + "','" + location + "','" + type + "','" + created_at + "','" + source_info_ip + "','" + customer_id + "','" + endpoint_type + "','" + endpoint_id + "','" + user_id + "','" + when_occured + "','" + source + "','" + group_action"')";
                 dbcmd.CommandText = sql1;
                 dbcmd.ExecuteNonQuery();
                 return 1;
