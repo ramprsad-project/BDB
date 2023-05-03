@@ -176,9 +176,9 @@ namespace SophosLoggingManagementAPI.Business
             int status =0;
             Root root = Deserialize<Root>(events);
             for (int i= 0; i < root.items.Count - 1; i++)
-            {
-                 status = SaveSystemEvents.SavesystemEventsToDB(root.items[i].user_id, root.items[i].when, root.items[i].created_at, root.items[i].type, root.items[i].severity, root.items[i].location, root.items[i].name, root.items[i].severity, root.items[i].severity, root.items[i].source_info.ip, root.items[i].source, root.items[i].endpoint_type, root.items[i].id, null, null, null, null, null, null, root.items[i].type, null, root.items[i].endpoint_id);
-            }
+             {
+                 status = SaveSystemEvents.SavesystemEventsToDB(root.items[i].id, root.items[i].severity, root.items[i].name, root.items[i].location, root.items[i].type, root.items[i].created_at, root.items[i].source_info.ip, root.items[i].customer_id, root.items[i].endpoint_type, root.items[i].endpoint_id, root.items[i].user_id, root.items[i].when, root.items[i].source, root.items[i].group);
+             }
 
             return (status == 1) ? "success" : "failed";
         }
