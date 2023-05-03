@@ -21,7 +21,7 @@ namespace SophosLoggingManagementAPI.Data
             try
             {
                 string sql1 = "INSERT INTO sophossystemevents(event_id, severity, name, location, type, created_at, source_info_ip, customer_id, endpoint_type, endpoint_id, user_id, when_occured, source, group_action) " +
-                " VALUES (" + event_id + ",'" + severity + "','" + name + "','" + location + "','" + type + "','" + created_at + "','" + source_info_ip + "','" + customer_id + "','" + endpoint_type + "','" + endpoint_id + "','" + user_id + "','" + when_occured + "','" + source + "','" + group_action"')";
+                " VALUES (" + event_id + ",'" + severity + "','" + name + "','" + location + "','" + type + "','" + created_at + "','" + source_info_ip + "','" + customer_id + "','" + endpoint_type + "','" + endpoint_id + "','" + user_id + "','" + when_occured + "','" + source + "','" + group_action + "')";
                 dbcmd.CommandText = sql1;
                 dbcmd.ExecuteNonQuery();
                 return 1;
